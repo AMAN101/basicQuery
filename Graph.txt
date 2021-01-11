@@ -1,0 +1,95 @@
+Start work on Graph
+
+public class GraphRequestdto {
+
+    private String CreatedOn;
+    private Integer count;
+
+}
+
+
+In JavaScript
+
+var newData=[];
+var myCat=[];
+
+add in both array
+
+newData=data&&data.map((item)=>{
+myCat.push(item.createdOn);
+return item.count;
+});
+
+xAxis: {
+     categories:myCat
+     //['day1','day2','day3','day4','day5','day6','day7','day8','day9','day10','day11','day12','day13','day14','day15']
+}
+
+series: [{	name: 'No.of Order',
+		data: newData
+}]
+
+
+Html
+<div class="HighChart">
+	<div class="row">
+                    <div class="col-md-6">
+                           <select id="chart-selector">
+                                        <option value=7 selected>Last 7 Days</option>
+                                        <option value=15>Last 15 Days</option>
+                                        <option value=30 >Last 1 Month</option>
+                                        <option value=180 >Last 6 Month</option>
+                            </select>
+                    </div>
+                    <div id="quotesAnalysInDay" style="height:380px; width:100%;">
+                    </div>  
+                    <div class="col-md-6">
+                           <select id="chart-selector">
+                                        <option value=7 selected>Last 7 Days</option>
+                                        <option value=15>Last 15 Days</option>
+                                        <option value=30 >Last 1 Month</option>
+                                        <option value=180 >Last 6 Month</option>
+                            </select>
+                    </div>
+                    <div id="quotesAnalysInDay" style="height:380px; width:100%;">
+                    </div>
+           </div>
+</div> 
+
+In JavaScript
+
+$("#chart-selector").change(function () {
+	
+	var value = $(this).children("option:selected").val();
+	orderPerformance(parseInt(value));
+
+});
+
+
+function orderPerformance(dayAgo) {
+	
+	var inputData={};  
+	var newData=[];
+	
+	
+	var myCat=[];
+	// inputData.aa = ""
+	inputData.day = dayAgo;
+	$.ajax({
+		type: "POST",
+		url: "/ColumnChart",
+		contentType:"application/json; charset=utf-8",
+		crossDomain: true,
+		
+
+
+
+                var chart = Highcharts.chart('quotesAnalysInDay', {
+
+					chart: {
+
+						type: 'column',
+						 backgroundColor: 'white',
+                                        ............
+                                        ............                                     
+                

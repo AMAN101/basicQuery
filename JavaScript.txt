@@ -1,0 +1,15 @@
+Datatable
+
+
+let data = pickListDetailsTable.rows().data();
+data[9]-----completerow
+
+
+var allPages = contentRequestTable.cells().nodes();
+$(allPages).find('input[id="chkbxId_0"]')[0]----find-----[0]  because it all string contain this value
+
+get this string -----<input id="chkbxId_0" type="checkbox" style="margin-left:0px" ;="" class="form-check-input" value="checked">
+
+
+
+$(allPages).find('input[id="chkbxId_'+i+'"]')[0].checked
